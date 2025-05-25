@@ -1,1 +1,1 @@
-# Image-Editor---Inverted-Image
+# Image-Editor Inverted-Image
