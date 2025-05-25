@@ -34,7 +34,7 @@ ImageEditor& ImageEditor::operator-=(const Color& c){
     return *this;
 }
         
-ImageEditor& ImageEditor::operator+=(const Color& c){    ///FINISHED
+ImageEditor& ImageEditor::operator+=(const Color& c){
     for (int x = 0; x < pic.height(); x++){
         for (int y = 0; y < pic.width(); y++){
             int r = min(255, pic.red(y,x) + c.r);
@@ -51,7 +51,7 @@ bool ImageEditor::operator==(const ImageEditor& ie) const{
     if (pic.height() != ie.pic.height() || pic.width() != ie.pic.width()){
         return false;
     }
-    for (int x = 0; x < pic.height(); x++){ //What prof did
+    for (int x = 0; x < pic.height(); x++){ 
         for (int y = 0; y < pic.width(); y++){
             if(pic.red(y,x) != ie.pic.red(y,x) || pic.green(y,x) != ie.pic.green(y,x) || pic.blue(y,x) != ie.pic.blue(y,x))
                 return false;
@@ -61,7 +61,7 @@ bool ImageEditor::operator==(const ImageEditor& ie) const{
 
 }
         
-bool ImageEditor::operator!=(const ImageEditor& ie) const{ ///FINISHED
+bool ImageEditor::operator!=(const ImageEditor& ie) const{ 
     return !(*this == ie);
 }
         
@@ -72,20 +72,21 @@ ImageEditor& ImageEditor::operator*=(unsigned int n){
 
     Picture picOut(pic.width() * n, pic.height() * n); 
     
-    for(int x = 0; x < pic.width(); x++){ //Mb wrong?
+    for(int x = 0; x < pic.width(); x++){ 
         for(int y = 0; y < pic.height(); y++){
-            int red = pic.red(x,y);      //could be getRed, etc (Changed the error)
+            int red = pic.red(x,y);      
             int green = pic.green(x,y);
             int blue = pic.blue(x,y);
         
-            for(int xOut = 0; xOut < n; xOut++){
-                for(int yOut = 0; yOut < n; yOut++){
+            for(unsigned int xOut = 0; xOut < n; xOut++){
+                for(unsigned int yOut = 0; yOut < n; yOut++){
                     picOut.set(x * n + xOut, y * n + yOut, red,green,blue); 
                 }
             }
         }
     }
     pic = picOut;
+    return *this;    
 }
 
 
