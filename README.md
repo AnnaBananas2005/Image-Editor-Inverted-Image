@@ -7,9 +7,6 @@
 In my program, I was given a framework that edits .png images.
 the 'lodepnh.cpp' decompresses the image & reads its header & binary data.
 
-## Explanations about the functions
-(Explanation will go here shortly)
-
 
 ## How to run it
 
