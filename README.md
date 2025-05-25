@@ -8,13 +8,19 @@ In my program, I was given a framework that edits .png images.
 the 'lodepnh.cpp' decompresses the image & reads its header & binary data.
 
 
-## How to run it
+## How to run it - Cloning with GIT
 
+1. Click the green button 'Code', and copy the HTTPS link
+2. Open your git bash terminal OR any IDE that has Git built into them (VS, VS code, etc)
+3. Run:
+<pre style="font-family: 'Courier New', monospace; font-size: 16px; background-color: #1e1e1e; color: #dcdcdc; padding: 10px; border-radius: 5px;">
+git clone https://github.com/AnnaBananas2005/Image-Editor-Inverted-Image.git
+</pre>
+
+## Run it
 1. Change to Image-Editor-Inverted-Image directory
-
 <pre style="font-family: 'Courier New', monospace; font-size: 16px; background-color: #1e1e1e; color: #dcdcdc; padding: 10px; border-radius: 5px;">
 make
 make run
 </pre>
-
 Your inverted image will be saved in the 'code' directory in 'output.png'.
