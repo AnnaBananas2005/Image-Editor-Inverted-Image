@@ -3,11 +3,6 @@
 
 ![invertedPika](https://github.com/user-attachments/assets/2b13c60f-fb3b-4987-b873-2857357e2ce8)
 
-## How it works
-In my program, I was given a framework that edits .png images.
-the 'lodepnh.cpp' decompresses the image & reads its header & binary data.
-
-
 ## How to run it - Cloning with GIT
 
 1. Click the green button 'Code', and copy the HTTPS link
