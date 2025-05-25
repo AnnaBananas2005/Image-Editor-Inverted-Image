@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include "ImageEditor-2.h"
 
