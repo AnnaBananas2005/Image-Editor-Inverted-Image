@@ -122,13 +122,13 @@ ImageEditor& ImageEditor::asciiArt(unsigned int n) {
 
 }
 
-//Extra Credit 2: Line Detection by Sobel Algorithm/Sobel Operator
+//Extra Credit 2: Line Detection with Sobel Operator
 //https://en.wikipedia.org/wiki/Sobel_operator
 
 ImageEditor& ImageEditor::lineDetection(unsigned int n) {
     Picture picOut(pic.width() * n, pic.height() * n);
-
     Picture grayscale = pic.grays(); 
+
     int matrixGx[3][3] = {
         {-1,0,1},
         {-2,0,2},
@@ -138,12 +138,10 @@ ImageEditor& ImageEditor::lineDetection(unsigned int n) {
         {-1,-2,-1},
         {0,0,0},
         {1,2,1}
-
     };
 
     for (int x = 0; x < pic.width(); x++) {
         for (int y = 0; y < pic.height(); y++) {
-
             int Gx = 0;
             int Gy = 0;
 
@@ -152,7 +150,6 @@ ImageEditor& ImageEditor::lineDetection(unsigned int n) {
                     int brightness = grayscale.red(x + i, y + j);
                     Gx += matrixGx[i + 1][j + 1] * brightness;
                     Gy += matrixGy[i + 1][j + 1] * brightness;
-
                 }
             }
             double magnitude = sqrt(pow(Gx, 2.0) + pow(Gy, 2.0));
@@ -166,11 +163,3 @@ ImageEditor& ImageEditor::lineDetection(unsigned int n) {
     return *this;
 
 }
-
-
-    
-
-
-
-            
-
