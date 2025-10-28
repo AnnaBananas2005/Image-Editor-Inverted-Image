@@ -28,4 +28,5 @@ git clone https://github.com/AnnaBananas2005/Image-Editor-Inverted-Image.git
 make
 make run
 </pre>
-Your inverted image will be saved in the 'code' directory in 'output.png'.
+Your images will be saved in the 'code' directory in 'output.png', & 'lineDetectionFileName.png'. A grayscale version of the photo will be in 'outputASCII.png'
+
