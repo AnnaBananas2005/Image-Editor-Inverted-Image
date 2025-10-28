@@ -7,7 +7,8 @@
 <img width="276" height="652" alt="image" src="https://github.com/user-attachments/assets/1999ecfd-dc53-467a-ad05-6a3d61e71344" />
 
 # Image-Editor Line Detection with Sobel Operator
-<img width="493" height="587" alt="lineDetectionMAYBEWorked" src="https://github.com/user-attachments/assets/193458e3-3924-45fb-a073-8712cfa62861" />
+<img width="280" height="327" alt="pikachuLineDetected" src="https://github.com/user-attachments/assets/73b14579-075b-4e62-b87e-a0304d631135" />
+
 
 
 
