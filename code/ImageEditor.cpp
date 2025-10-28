@@ -1,5 +1,7 @@
 #include <iostream>
+#include <fstream>
 #include "ImageEditor-2.h"
+#include <cmath> //for line detection
 
 using namespace std;
 
@@ -86,6 +88,83 @@ ImageEditor& ImageEditor::operator*=(unsigned int n){
     }
     pic = picOut;
     return *this;    
+}
+
+//Extra credit
+//Density: https://www.astoundingscripts.com/art/create-your-own-ascii-art-palettes-densitysort/
+//^ Used short (opposite) 
+
+ImageEditor& ImageEditor::asciiArt(unsigned int n) {
+    Picture picOut(pic.width() * n, pic.height() * n);
+    Picture grayscale = pic.grays();
+    //string asciiLetters = ".:-=+*#%@"; Inverted
+    string asciiLetters = "@%#*+=-:.";
+
+    for (int x = 0; x < pic.height(); x += 1) {
+        string row = "";
+        for (int y = 0; y < pic.width(); y += 1) {
+            int brightness = grayscale.red(y, x);
+            int i = (brightness * (asciiLetters.length() - 1)) / 255;  
+            row += asciiLetters[i];
+            int value = (i * 255) / (asciiLetters.length() - 1);
+
+            for (unsigned int xOut = 0; xOut < n; xOut++) {
+                for (unsigned int yOut = 0; yOut < n; yOut++) {
+                    picOut.set(y * n + yOut, x * n + xOut, value, value, value);
+                }
+            }
+        }
+        cout << row << endl;
+    }
+    pic = picOut;
+
+    return *this;
+
+}
+
+//Extra Credit 2: Line Detection by Sobel Algorithm/Sobel Operator
+//https://en.wikipedia.org/wiki/Sobel_operator
+
+ImageEditor& ImageEditor::lineDetection(unsigned int n) {
+    Picture picOut(pic.width() * n, pic.height() * n);
+
+    Picture grayscale = pic.grays(); 
+    int matrixGx[3][3] = {
+        {-1,0,1},
+        {-2,0,2},
+        {-1,0,1}
+    };
+    int matrixGy[3][3] = {
+        {-1,-2,-1},
+        {0,0,0},
+        {1,2,1}
+
+    };
+
+    for (int x = 0; x < pic.width(); x++) {
+        for (int y = 0; y < pic.height(); y++) {
+
+            int Gx = 0;
+            int Gy = 0;
+
+            for (int i = -1; i <= +1; i++) {
+                for (int j = -1; j <= +1; j++) {
+                    int brightness = grayscale.red(x + i, y + j);
+                    Gx += matrixGx[i + 1][j + 1] * brightness;
+                    Gy += matrixGy[i + 1][j + 1] * brightness;
+
+                }
+            }
+            double magnitude = sqrt(pow(Gx, 2.0) + pow(Gy, 2.0));
+            double theta = atan2(Gy, Gx); 
+            double result = (magnitude > 255) ? 255 : magnitude; 
+            picOut.set(x, y, result, result, result);
+        }
+    }
+
+    pic = picOut;
+    return *this;
+
 }
 
 
