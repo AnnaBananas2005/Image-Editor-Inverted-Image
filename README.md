@@ -1,4 +1,4 @@
-# Image-Editor Inverted-Image
+# Image-Editor 
 ![pic](https://github.com/user-attachments/assets/00094e36-5a69-43e2-b5a8-06fea733ea1c)
 
 ![invertedPika](https://github.com/user-attachments/assets/2b13c60f-fb3b-4987-b873-2857357e2ce8)
